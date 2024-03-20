@@ -10,6 +10,12 @@ namespace Crvs.Infrastructure.Persistence
 {
     internal class CrvsDbContext : DbContext
     {
+        public CrvsDbContext(DbContextOptions<CrvsDbContext> dbContextOptions): base(dbContextOptions) { }
+
         public DbSet<BirthRegistration> BirthRegisration { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
