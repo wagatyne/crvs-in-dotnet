@@ -8,8 +8,7 @@ namespace Crvs.Domain.Entities
 {
     public class Father : Person
     {
-        public Father()
-            :base(sex:Sex.Male)
+        public Father():base(sex:Sex.Male)
         {
             
         }

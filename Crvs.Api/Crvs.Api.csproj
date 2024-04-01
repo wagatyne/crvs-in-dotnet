@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Crvs.Domain\Crvs.Domain.csproj" />
+    <ProjectReference Include="..\Crvs.Core\Crvs.Core.csproj" />
   </ItemGroup>
 
 </Project>

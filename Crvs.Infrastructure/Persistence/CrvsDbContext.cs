@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Crvs.Infrastructure.Persistence
 {
-    internal class CrvsDbContext : DbContext
+    public class CrvsDbContext : DbContext
     {
         public CrvsDbContext(DbContextOptions<CrvsDbContext> dbContextOptions): base(dbContextOptions) { }
 
