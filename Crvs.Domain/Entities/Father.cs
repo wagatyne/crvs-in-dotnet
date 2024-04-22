@@ -12,5 +12,6 @@ namespace Crvs.Domain.Entities
         {
             
         }
+
     }
 }

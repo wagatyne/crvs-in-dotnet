@@ -1,4 +1,7 @@
-﻿using Crvs.Infrastructure.Persistence;
+﻿using Crvs.Core.Contracts;
+using Crvs.Infrastructure.Logging;
+using Crvs.Infrastructure.Persistence;
+using Crvs.Infrastructure.Persistence.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,7 +28,13 @@ namespace Crvs.Infrastructure
                     options.EnableDetailedErrors(env.IsDevelopment());
                     options.EnableSensitiveDataLogging(env.IsDevelopment());
                 });
-
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            return services;
+        }
+        public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration config, IHostEnvironment env)
+        {
+            services.AddPersistenceServices(config, env);
+            services.AddScoped(typeof(IAppLogger<>),typeof(LoggingAdapter<>));
             return services;
         }
     }
